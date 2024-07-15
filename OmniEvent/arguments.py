@@ -9,7 +9,7 @@ from dataclasses import dataclass, field, asdict
 from typing import Optional
 from transformers import TrainingArguments, HfArgumentParser
 
-from .utils import check_web_and_convert_path
+from utils import check_web_and_convert_path
 
 
 @dataclass

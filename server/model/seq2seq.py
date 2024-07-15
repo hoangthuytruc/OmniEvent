@@ -6,8 +6,8 @@ from typing import List, Tuple, Union
 
 from transformers import MT5ForConditionalGeneration, MT5TokenizerFast
 
-from .input_processor import EDProcessor, EAEProcessor
-from .constraint_decoding import get_constraint_decoder
+from input_processor import EDProcessor, EAEProcessor
+from constraint_decoding import get_constraint_decoder
 
 
 type_start = "<"

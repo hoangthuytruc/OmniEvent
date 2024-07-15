@@ -3,15 +3,15 @@ import json
 
 import torch.cuda
 
-from .arguments import (
+from arguments import (
     ArgumentParser,
     ModelArguments,
     DataArguments,
     TrainingArguments
 )
-from .model.model import get_model_cls
-from .input_engineering.whitespace_tokenizer import WhitespaceTokenizer
-from .utils import check_web_and_convert_path
+from model.model import get_model_cls
+from input_engineering.whitespace_tokenizer import WhitespaceTokenizer
+from utils import check_web_and_convert_path
 from transformers import (
     BertTokenizerFast,
     RobertaTokenizerFast,
@@ -19,7 +19,7 @@ from transformers import (
     MT5TokenizerFast,
     BartTokenizerFast
 )
-from .infer_module.seq2seq import (
+from infer_module.seq2seq import (
     do_event_detection,
     do_event_argument_extraction,
     get_ed_result,

@@ -3,7 +3,7 @@ import logging
 import numpy as np
 
 from tqdm import tqdm
-from .base_processor import (
+from base_processor import (
     EDDataProcessor,
     EDInputExample,
     EDInputFeatures,
@@ -11,8 +11,8 @@ from .base_processor import (
     EAEInputExample,
     EAEInputFeatures
 )
-from .mrc_converter import read_query_templates
-from .input_utils import get_words, get_left_and_right_pos, get_word_ids
+from mrc_converter import read_query_templates
+from input_utils import get_words, get_left_and_right_pos, get_word_ids
 from collections import defaultdict
 from typing import List, Dict, Optional, Union
 

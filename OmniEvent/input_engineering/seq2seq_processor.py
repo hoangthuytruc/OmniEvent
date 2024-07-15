@@ -5,8 +5,8 @@ from typing import List, Union, Tuple, Optional
 
 from tqdm import tqdm
 from collections import defaultdict
-from .input_utils import get_words, get_plain_label
-from .base_processor import (
+from input_utils import get_words, get_plain_label
+from base_processor import (
     EDInputExample,
     EDDataProcessor,
     EDInputFeatures,

@@ -4,9 +4,9 @@ import numpy as np
 from tqdm import tqdm
 from collections import defaultdict
 from typing import List, Dict, Union, Tuple
-from .convert_format import get_pred_per_mention
-from .metric import select_start_position
-from ..input_engineering.input_utils import check_pred_len, get_left_and_right_pos
+from convert_format import get_pred_per_mention
+from metric import select_start_position
+from input_engineering.input_utils import check_pred_len, get_left_and_right_pos
 
 
 def get_sentence_arguments(input_sentence: List[Dict[str, str]]) -> List[Dict[str, str]]:

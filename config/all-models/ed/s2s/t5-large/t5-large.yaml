@@ -6,16 +6,16 @@ do_ED_infer: True
 # top-level config #
 paradigm: seq2seq
 task_name: ED
-dataset_name: ACE2005-dygie
-language: English
-test_exists_labels: True
+dataset_name: VHE
+#language: English
+test_exists_labels: False
 
 # file path # 
-output_dir: output/ACE2005-dygie
-type2id_path: ../../data/processed/ace2005-dygie/label2id.json
-train_file: ../../data/processed/ace2005-dygie/train.unified.jsonl
-validation_file: ../../data/processed/ace2005-dygie/valid.unified.jsonl
-test_file: ../../data/processed/ace2005-dygie/test.unified.jsonl
+output_dir: output/VHE
+type2id_path: /kaggle/input/vihistevent/label2id.json
+train_file: /kaggle/input/vihistevent/train.unified.jsonl
+validation_file: /kaggle/input/vihistevent/valid.unified.jsonl
+test_file: /kaggle/input/vihistevent/test.unified.jsonl
 
 # config for data processor #
 truncate_in_batch: True 

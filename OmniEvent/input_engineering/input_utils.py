@@ -5,7 +5,7 @@ import logging
 from pathlib import Path
 from transformers import PreTrainedTokenizer
 from transformers.tokenization_utils import BatchEncoding
-from .whitespace_tokenizer import WordLevelTokenizer
+from whitespace_tokenizer import WordLevelTokenizer
 from typing import Dict, List, Optional, Union, Tuple
 
 logger = logging.getLogger(__name__)

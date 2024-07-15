@@ -15,7 +15,7 @@ import pdb
 debug = False
 debug_step = False 
 
-from ..input_engineering.seq2seq_processor import type_start, type_end
+from input_engineering.seq2seq_processor import type_start, type_end
 
 
 def get_label_name_tree(label_name_list, tokenizer, end_symbol='<end>'):
