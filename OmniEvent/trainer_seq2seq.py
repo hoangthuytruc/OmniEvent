@@ -27,8 +27,8 @@ from .model.constraint_decoding import get_constraint_decoder
 from .model.label_smoother_sum import SumLabelSmoother
 from transformers.trainer_utils import PredictionOutput
 from transformers.trainer import Trainer
-from model.constraint_decoding import get_constraint_decoder
-from model.label_smoother_sum import SumLabelSmoother
+from .model.constraint_decoding import get_constraint_decoder
+from .model.label_smoother_sum import SumLabelSmoother
 
 
 logger = logging.getLogger(__name__)
