@@ -15,8 +15,8 @@ from .v1 import SCORES, _precision_recall_fscore_support
 from .v1 import classification_report as cr
 from .v1 import \
     precision_recall_fscore_support as precision_recall_fscore_support_v1
-from seqeval.reporters import DictReporter, StringReporter
-from seqeval.scheme import Token
+from ..reporters import DictReporter, StringReporter
+from ..scheme import Token
 
 
 def precision_recall_fscore_support(y_true: List[List[str]],
