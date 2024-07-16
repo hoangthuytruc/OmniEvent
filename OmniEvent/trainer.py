@@ -22,9 +22,7 @@ import numpy as np
 
 from transformers import Trainer
 
-from transformers.trainer import (
-    is_torch_tpu_available
-)
+from .file_utils import is_torch_tpu_available
 
 from transformers.trainer_pt_utils import (
     IterableDatasetShard,
