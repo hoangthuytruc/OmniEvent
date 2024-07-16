@@ -11,9 +11,9 @@ from typing import List, Optional, Type
 
 import numpy as np
 
-from seqeval.metrics.v1 import SCORES, _precision_recall_fscore_support
-from seqeval.metrics.v1 import classification_report as cr
-from seqeval.metrics.v1 import \
+from .v1 import SCORES, _precision_recall_fscore_support
+from .v1 import classification_report as cr
+from .v1 import \
     precision_recall_fscore_support as precision_recall_fscore_support_v1
 from seqeval.reporters import DictReporter, StringReporter
 from seqeval.scheme import Token

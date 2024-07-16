@@ -4,8 +4,8 @@ from typing import Callable, List, Optional, Tuple, Type, Union
 import numpy as np
 from sklearn.exceptions import UndefinedMetricWarning
 
-from seqeval.reporters import DictReporter, StringReporter
-from seqeval.scheme import Entities, Token, auto_detect
+from ..reporters import DictReporter, StringReporter
+from ..scheme import Entities, Token, auto_detect
 
 PER_CLASS_SCORES = Tuple[List[float], List[float], List[float], List[int]]
 AVERAGE_SCORES = Tuple[float, float, float, int]
