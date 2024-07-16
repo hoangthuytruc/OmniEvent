@@ -4,10 +4,10 @@ import torch
 import numpy as np
 
 from sklearn.metrics import f1_score, precision_score, recall_score
-from seqeval.metrics import f1_score as span_f1_score
-from seqeval.metrics import precision_score as span_precision_score
-from seqeval.metrics import recall_score as span_recall_score
-from seqeval.scheme import IOB2
+from ..seqeval.metrics import f1_score as span_f1_score
+from ..seqeval.metrics import precision_score as span_precision_score
+from ..seqeval.metrics import recall_score as span_recall_score
+from ..seqeval.scheme import IOB2
 from typing import Tuple, Dict, List, Optional, Union
 
 from ..input_engineering.mrc_converter import make_predictions, compute_mrc_F1_cls
