@@ -4,8 +4,8 @@ import logging
 from tqdm import tqdm
 from typing import List, Optional, Dict
 
-from input_utils import check_is_argument, get_negative_argument_candidates, get_word_ids, char_pos_to_word_pos
-from base_processor import (
+from .input_utils import check_is_argument, get_negative_argument_candidates, get_word_ids, char_pos_to_word_pos
+from .base_processor import (
     EDDataProcessor,
     EDInputExample,
     EDInputFeatures,

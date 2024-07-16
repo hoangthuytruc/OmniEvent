@@ -6,16 +6,16 @@ import torch.nn.functional as F
 from typing import Dict, Optional, Union
 from transformers import BartForConditionalGeneration, MT5ForConditionalGeneration, T5ForConditionalGeneration
 
-from aggregation.aggregation import get_aggregation, aggregate
-from head.head import get_head
-from head.classification import LinearHead
-from arguments import (
+from OmniEvent.aggregation.aggregation import get_aggregation, aggregate
+from OmniEvent.head.head import get_head
+from OmniEvent.head.classification import LinearHead
+from OmniEvent.arguments import (
     ModelArguments,
     DataArguments,
     TrainingArguments,
     ArgumentParser
 )
-from utils import check_web_and_convert_path
+from OmniEvent.utils import check_web_and_convert_path
 
 
 def get_model(model_args,

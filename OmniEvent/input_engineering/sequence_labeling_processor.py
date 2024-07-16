@@ -3,8 +3,8 @@ import logging
 from typing import List, Union, Any, Optional
 
 from tqdm import tqdm
-from input_utils import get_words, get_left_and_right_pos, get_word_ids
-from base_processor import (
+from .input_utils import get_words, get_left_and_right_pos, get_word_ids
+from .base_processor import (
     EDDataProcessor,
     EDInputExample,
     EDInputFeatures,

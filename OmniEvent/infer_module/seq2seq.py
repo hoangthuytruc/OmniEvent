@@ -2,7 +2,7 @@ import re
 import torch 
 
 from collections import defaultdict
-from io_format import Result, Event
+from .io_format import Result, Event
 
 
 split_word = ":"

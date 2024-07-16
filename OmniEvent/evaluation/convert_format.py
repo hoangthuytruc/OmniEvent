@@ -4,8 +4,8 @@ import numpy as np
 
 from typing import List, Dict, Union, Tuple
 from sklearn.metrics import f1_score
-from metric import select_start_position, compute_unified_micro_f1, f1_score_overall_with_type
-from input_engineering.input_utils import (
+from .metric import select_start_position, compute_unified_micro_f1, f1_score_overall_with_type
+from ..input_engineering.input_utils import (
     get_left_and_right_pos,
     check_pred_len,
     get_ed_candidates,

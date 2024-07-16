@@ -22,6 +22,9 @@ import logging
 from transformers.trainer_seq2seq import (
     is_deepspeed_zero3_enabled
 )
+from .trainer import Trainer
+from .model.constraint_decoding import get_constraint_decoder
+from .model.label_smoother_sum import SumLabelSmoother
 from transformers.trainer_utils import PredictionOutput
 from transformers.trainer import Trainer
 from model.constraint_decoding import get_constraint_decoder

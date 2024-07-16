@@ -10,8 +10,8 @@ from seqeval.metrics import recall_score as span_recall_score
 from seqeval.scheme import IOB2
 from typing import Tuple, Dict, List, Optional, Union
 
-from input_engineering.mrc_converter import make_predictions, compute_mrc_F1_cls
-from input_engineering.seq2seq_processor import extract_argument
+from ..input_engineering.mrc_converter import make_predictions, compute_mrc_F1_cls
+from ..input_engineering.seq2seq_processor import extract_argument
 
 
 def compute_unified_micro_f1(label_names: List[str], results: List[str]) -> float:

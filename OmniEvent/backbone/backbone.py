@@ -13,8 +13,8 @@ from transformers import MT5ForConditionalGeneration
 from transformers import BartForConditionalGeneration, BartTokenizerFast
 from transformers.utils import ModelOutput
 
-from input_engineering.whitespace_tokenizer import WordLevelTokenizer, load_vocab, VOCAB_FILES_NAMES
-from arguments import ModelArguments
+from ..input_engineering.whitespace_tokenizer import WordLevelTokenizer, load_vocab, VOCAB_FILES_NAMES
+from ..arguments import ModelArguments
 
 def get_backbone(model_type: str,
                  model_name_or_path: str,

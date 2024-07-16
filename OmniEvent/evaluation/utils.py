@@ -10,12 +10,12 @@ from pathlib import Path
 from typing import List, Dict, Union, Tuple
 from transformers import PreTrainedTokenizer
 
-from trainer import Trainer
-from trainer_seq2seq import Seq2SeqTrainer
-from arguments import DataArguments, ModelArguments, TrainingArguments
-from input_engineering.seq2seq_processor import extract_argument
-from input_engineering.base_processor import EDDataProcessor, EAEDataProcessor
-from input_engineering.mrc_converter import make_predictions, find_best_thresh
+from ..trainer import Trainer
+from ..trainer_seq2seq import Seq2SeqTrainer
+from ..arguments import DataArguments, ModelArguments, TrainingArguments
+from ..input_engineering.seq2seq_processor import extract_argument
+from ..input_engineering.base_processor import EDDataProcessor, EAEDataProcessor
+from ..input_engineering.mrc_converter import make_predictions, find_best_thresh
 
 from .convert_format import (
     get_trigger_detection_sl, 
