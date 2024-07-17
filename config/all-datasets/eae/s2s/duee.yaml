@@ -11,11 +11,11 @@ test_exists_labels: False
 
 # file path #
 output_dir: output/DuEE1.0
-type2id_path: ../../data/processed/DuEE1.0/label2id.json
-role2id_path: ../../data/processed/DuEE1.0/role2id.json
-train_file: ../../data/processed/DuEE1.0/train.unified.jsonl
-validation_file: ../../data/processed/DuEE1.0/valid.unified.jsonl
-test_file: ../../data/processed/DuEE1.0/test.unified.jsonl
+type2id_path: /kaggle/input/chinese-duee/DuEE1.0/label2id.json
+role2id_path: /kaggle/input/chinese-duee/DuEE1.0/role2id.json
+train_file: /kaggle/input/chinese-duee/DuEE1.0/train.unified.jsonl
+validation_file: /kaggle/input/chinese-duee/DuEE1.0/valid.unified.jsonl
+test_file: /kaggle/input/chinese-duee/DuEE1.0/test.unified.jsonl
 
 # event detection predictions
 golden_trigger: True 

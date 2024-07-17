@@ -10,17 +10,17 @@ language: English
 test_exists_labels: True
 
 # file path #
-output_dir: output/ACE2005-dygie
-type2id_path: ../../data/processed/ace2005-dygie/label2id.json
-role2id_path: ../../data/processed/ace2005-dygie/role2id.json
-train_file: ../../data/processed/ace2005-dygie/train.unified.jsonl
-validation_file: ../../data/processed/ace2005-dygie/valid.unified.jsonl
-test_file: ../../data/processed/ace2005-dygie/test.unified.jsonl
+output_dir: output/DuEE1.0
+type2id_path: /kaggle/input/chinese-duee/DuEE1.0/label2id.json
+role2id_path: /kaggle/input/chinese-duee/DuEE1.0/role2id.json
+train_file: /kaggle/input/chinese-duee/DuEE1.0/train.unified.jsonl
+validation_file: /kaggle/input/chinese-duee/DuEE1.0/valid.unified.jsonl
+test_file: /kaggle/input/chinese-duee/DuEE1.0/test.unified.jsonl
 # event detection predictions
 golden_trigger: True
-train_pred_file: output/ACE2005-dygie/ED/token_classification/bert-base-uncased-marker/train_preds.json
-validation_pred_file: output/ACE2005-dygie/ED/token_classification/bert-base-uncased-marker/valid_preds.json
-test_pred_file: output/ACE2005-dygie/ED/token_classification/bert-base-uncased-marker/test_preds.json
+train_pred_file: output/DuEE1.0/ED/token_classification/bert-base-uncased-marker/train_preds.json
+validation_pred_file: output/DuEE1.0/ED/token_classification/bert-base-uncased-marker/valid_preds.json
+test_pred_file: output/DuEE1.0/ED/token_classification/bert-base-uncased-marker/test_preds.json
 
 # config for data processor # 
 truncate_in_batch: True 
