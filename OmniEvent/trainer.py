@@ -21,24 +21,37 @@ from collections import defaultdict
 import numpy as np
 
 from transformers import Trainer
-
-from transformers.utils.import_utils import is_torch_tpu_available
-
-from transformers.trainer_pt_utils import (
-    IterableDatasetShard,
-    find_batch_size,
-    nested_concat,
-    nested_numpify,
-    nested_truncate
-)
-
-from transformers.trainer_utils import (
-    EvalLoopOutput,
-    EvalPrediction,
+from transformers.trainer import (
+    EvalLoopOutput, 
+    deepspeed_init, 
+    find_batch_size, 
+    nested_concat, 
+    nested_numpify, 
+    IterableDatasetShard, 
+    nested_truncate, 
+    EvalPrediction, 
+    denumpify_detensorize,
     has_length,
-    denumpify_detensorize
+    is_torch_tpu_available
 )
-from transformers.integrations.deepspeed import deepspeed_init
+
+# from transformers.utils.import_utils import is_torch_tpu_available
+
+# from transformers.trainer_pt_utils import (
+#     IterableDatasetShard,
+#     find_batch_size,
+#     nested_concat,
+#     nested_numpify,
+#     nested_truncate
+# )
+
+# from transformers.trainer_utils import (
+#     EvalLoopOutput,
+#     EvalPrediction,
+#     has_length,
+#     denumpify_detensorize
+# )
+# from transformers.integrations.deepspeed import deepspeed_init
 
 if is_torch_tpu_available():
     import torch_xla.core.xla_model as xm
