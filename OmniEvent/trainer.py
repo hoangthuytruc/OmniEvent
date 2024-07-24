@@ -38,7 +38,7 @@ from transformers.trainer_utils import (
     has_length,
     denumpify_detensorize
 )
-from transformers.integrations.deepspeed import deepspeed_init
+from transformers.deepspeed import deepspeed_init
 
 if is_torch_tpu_available():
     import torch_xla.core.xla_model as xm
