@@ -1,15 +1,7 @@
-# requirements.txt
-
-# Install a local library in editable mode
-# -e /path/to/your/local/library
-
-# Install a Git repository in editable mode
-# https://github.com/hoangthuytruc/transformers.git
--e git+https://github.com/hoangthuytruc/transformers.git@OmniEvent#egg=transformers
-
 # Other dependencies
 scikit-learn==1.0.2
 six==1.16.0
+transformers==4.21.2
 #transformers==4.21.2
 sentencepiece==0.1.97
 seqeval==1.2.2
