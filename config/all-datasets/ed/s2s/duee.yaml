@@ -35,7 +35,7 @@ max_out_length: 128
 dataloader_num_workers: 2
 
 generation_max_length: 128
-generation_num_beams: 4
+generation_num_beams: 1
 predict_with_generate: True 
 ignore_pad_token_for_loss: True 
 
