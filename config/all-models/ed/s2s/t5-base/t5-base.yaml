@@ -12,10 +12,10 @@ test_exists_labels: False
 
 # file path # 
 output_dir: output/DuEE1.0
-type2id_path: /kaggle/input/chinese-duee/DuEE1.0/label2id.json
-train_file: /kaggle/input/chinese-duee/DuEE1.0/train.unified.jsonl
-validation_file: /kaggle/input/chinese-duee/DuEE1.0/valid.unified.jsonl
-test_file: /kaggle/input/chinese-duee/DuEE1.0/test.unified.jsonl
+type2id_path: /kaggle/input/chinese-duee/label2id.json
+train_file: /kaggle/input/chinese-duee/train.unified.jsonl
+validation_file: /kaggle/input/chinese-duee/valid.unified.jsonl
+test_file: /kaggle/input/chinese-duee/test.unified.jsonl
 
 # config for data processor #
 truncate_in_batch: True 
