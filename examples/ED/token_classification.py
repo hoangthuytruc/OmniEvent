@@ -19,7 +19,7 @@ from OmniEvent.evaluation.metric import compute_F1
 from OmniEvent.evaluation.utils import predict, dump_preds
 from OmniEvent.evaluation.dump_result import get_leven_submission, get_maven_submission
 
-from OmniEvent.trainer import Trainer
+from OmniEvent.trainer import EETrainer
 
 # argument parser
 parser = ArgumentParser((ModelArguments, DataArguments, TrainingArguments))
@@ -92,7 +92,7 @@ train_dataset = data_class(data_args, tokenizer, data_args.train_file)
 eval_dataset = data_class(data_args, tokenizer, data_args.validation_file)
 
 # Trainer 
-trainer = Trainer(
+trainer = EETrainer(
     args=training_args,
     model=model,
     train_dataset=train_dataset,

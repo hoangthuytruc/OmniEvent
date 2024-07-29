@@ -42,7 +42,7 @@ if is_torch_tpu_available():
 logger = logging.getLogger(__name__)
 
 
-class Trainer(Trainer):
+class EETrainer(Trainer):
     """Trainer for event extraction.
 
     Trainer for event extraction, training the model based on the given dataset. The trainer predicts the labels,

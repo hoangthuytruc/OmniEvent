@@ -23,7 +23,7 @@ from transformers.trainer_seq2seq import (
     is_deepspeed_zero3_enabled,
     PredictionOutput
 )
-from .trainer import Trainer
+from .trainer import EETrainer
 from .model.constraint_decoding import get_constraint_decoder
 from .model.label_smoother_sum import SumLabelSmoother
 
@@ -31,7 +31,7 @@ from .model.label_smoother_sum import SumLabelSmoother
 logger = logging.getLogger(__name__)
 
 
-class Seq2SeqTrainer(Trainer):
+class Seq2SeqTrainer(EETrainer):
     """
     Trainer for event extraction based on the Sequence-to-Sequence (Seq2Seq) paradigm.
 
