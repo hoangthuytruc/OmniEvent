@@ -20,7 +20,7 @@ from OmniEvent.evaluation.dump_result import get_duee_submission_mrc
 from OmniEvent.evaluation.convert_format import get_argument_extraction_mrc
 from OmniEvent.evaluation.utils import predict, get_pred_mrc
 
-from OmniEvent.trainer import Trainer
+from OmniEvent.trainer import EETrainer
 
 # argument parser
 parser = ArgumentParser((ModelArguments, DataArguments, TrainingArguments))
@@ -91,7 +91,7 @@ eval_dataset = data_class(data_args, tokenizer, data_args.validation_file, data_
 training_args.data_for_evaluation = eval_dataset.get_data_for_evaluation()
 
 # Trainer 
-trainer = Trainer(
+trainer = EETrainer(
     args=training_args,
     model=model,
     train_dataset=train_dataset,

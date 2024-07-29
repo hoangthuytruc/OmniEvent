@@ -20,7 +20,7 @@ from OmniEvent.evaluation.convert_format import get_trigger_detection_sl
 from OmniEvent.evaluation.dump_result import get_leven_submission_sl, get_maven_submission_sl
 
 from OmniEvent.input_engineering.input_utils import get_bio_labels
-from OmniEvent.trainer import Trainer
+from OmniEvent.trainer import EETrainer
 
 # argument parser
 parser = ArgumentParser((ModelArguments, DataArguments, TrainingArguments))
@@ -86,7 +86,7 @@ train_dataset = data_class(data_args, tokenizer, data_args.train_file)
 eval_dataset = data_class(data_args, tokenizer, data_args.validation_file)
 
 # Trainer 
-trainer = Trainer(
+trainer = EETrainer(
     args=training_args,
     model=model,
     train_dataset=train_dataset,

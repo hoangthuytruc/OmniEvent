@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import List, Dict, Union, Tuple
 from transformers import PreTrainedTokenizer
 
-from ..trainer import Trainer
+from ..trainer import EETrainer
 from ..trainer_seq2seq import Seq2SeqTrainer
 from ..arguments import DataArguments, ModelArguments, TrainingArguments
 from ..input_engineering.seq2seq_processor import extract_argument
@@ -26,7 +26,7 @@ from .convert_format import (
 logger = logging.getLogger(__name__)
 
 
-def dump_preds(trainer: Union[Trainer, Seq2SeqTrainer],
+def dump_preds(trainer: Union[EETrainer, Seq2SeqTrainer],
                tokenizer: PreTrainedTokenizer,
                data_class: type,
                output_dir: Union[str,Path],
@@ -174,7 +174,7 @@ def get_pred_mrc(logits: np.array,
     return final_preds
 
 
-def predict(trainer: Union[Trainer, Seq2SeqTrainer],
+def predict(trainer: Union[EETrainer, Seq2SeqTrainer],
             tokenizer: PreTrainedTokenizer,
             data_class: type,
             data_args: DataArguments,
@@ -296,7 +296,7 @@ def get_sub_files(input_test_file: str,
     return output_test_files
 
 
-def predict_ed(trainer: Union[Trainer, Seq2SeqTrainer],
+def predict_ed(trainer: Union[EETrainer, Seq2SeqTrainer],
                tokenizer: PreTrainedTokenizer,
                data_class: type,
                data_args,
@@ -337,7 +337,7 @@ def predict_ed(trainer: Union[Trainer, Seq2SeqTrainer],
     return logits, labels, metrics, dataset
 
 
-def predict_sub_ed(trainer: Union[Trainer, Seq2SeqTrainer],
+def predict_sub_ed(trainer: Union[EETrainer, Seq2SeqTrainer],
                    tokenizer: PreTrainedTokenizer,
                    data_class: type,
                    data_args: DataArguments,
@@ -393,7 +393,7 @@ def predict_sub_ed(trainer: Union[Trainer, Seq2SeqTrainer],
     return logits, labels, metrics, dataset
 
 
-def predict_eae(trainer: Union[Trainer, Seq2SeqTrainer],
+def predict_eae(trainer: Union[EETrainer, Seq2SeqTrainer],
                 tokenizer: PreTrainedTokenizer,
                 data_class: type,
                 data_args: DataArguments,
@@ -433,7 +433,7 @@ def predict_eae(trainer: Union[Trainer, Seq2SeqTrainer],
     return logits, labels, metrics, test_dataset
 
 
-def predict_sub_eae(trainer: Union[Trainer, Seq2SeqTrainer],
+def predict_sub_eae(trainer: Union[EETrainer, Seq2SeqTrainer],
                     tokenizer: PreTrainedTokenizer,
                     data_class: type,
                     data_args: DataArguments,

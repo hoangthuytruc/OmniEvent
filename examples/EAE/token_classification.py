@@ -18,7 +18,7 @@ from OmniEvent.backbone.backbone import get_backbone
 from OmniEvent.evaluation.metric import compute_F1
 from OmniEvent.evaluation.utils import predict
 
-from OmniEvent.trainer import Trainer
+from OmniEvent.trainer import EETrainer
 
 # argument parser
 parser = ArgumentParser((ModelArguments, DataArguments, TrainingArguments))
@@ -101,7 +101,7 @@ eval_dataset = data_class(data_args, tokenizer, data_args.validation_file, data_
 training_args.data_for_evaluation = eval_dataset.get_data_for_evaluation()
 
 # Trainer 
-trainer = Trainer(
+trainer = EETrainer(
     args=training_args,
     model=model,
     train_dataset=train_dataset,
