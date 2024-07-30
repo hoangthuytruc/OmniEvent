@@ -11,7 +11,7 @@ language: Chinese
 test_exists_labels: False
 
 # file path # 
-output_dir: output/DuEE1.0
+output_dir:  /kaggle/tmp/OmniEvent/output/DuEE1.0
 type2id_path: /kaggle/input/chinese-duee/label2id.json
 train_file: /kaggle/input/chinese-duee/train.unified.jsonl
 validation_file: /kaggle/input/chinese-duee/valid.unified.jsonl
