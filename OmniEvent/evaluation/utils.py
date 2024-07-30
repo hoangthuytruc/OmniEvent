@@ -223,7 +223,8 @@ def predict(trainer: Union[EETrainer, Seq2SeqTrainer],
         raise NotImplementedError
 
 
-def get_sub_files(input_test_file: str,
+def get_sub_files(input_test_file: str, 
+                  save_dir: str,
                   input_test_pred_file: str = None,
                   sub_size: int = 5000,
                   ) -> Union[List[str], Tuple[List[str], List[str]]]:
@@ -250,7 +251,7 @@ def get_sub_files(input_test_file: str,
                 The list of paths to the split files.
     """
     test_data = list(jsonlines.open(input_test_file))
-    sub_data_folder = '/'.join(input_test_file.split('/')[:-1]) + '/test_cache/'
+    sub_data_folder = save_dir + '/test_cache/'
 
     # clear the cache dir before split evaluate
     if os.path.isdir(sub_data_folder):
@@ -373,7 +374,8 @@ def predict_sub_ed(trainer: Union[EETrainer, Seq2SeqTrainer],
             An instance of the testing dataset.
     """
     data_file_full = data_file
-    data_file_list = get_sub_files(input_test_file=data_file_full,
+    data_file_list = get_sub_files(input_test_file=data_file_full, 
+                                   save_dir=data_args.output_dir,
                                    sub_size=data_args.split_infer_size)
 
     logits_list, labels_list = [], []
@@ -469,7 +471,8 @@ def predict_sub_eae(trainer: Union[EETrainer, Seq2SeqTrainer],
             An instance of the testing dataset.
     """
     test_file_full, test_pred_file_full = data_args.test_file, data_args.test_pred_file
-    test_file_list, test_pred_file_list = get_sub_files(input_test_file=test_file_full,
+    test_file_list, test_pred_file_list = get_sub_files(input_test_file=test_file_full, 
+                                                        save_dir=data_args.output_dir,
                                                         input_test_pred_file=test_pred_file_full,
                                                         sub_size=data_args.split_infer_size)
 
