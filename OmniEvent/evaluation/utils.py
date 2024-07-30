@@ -223,8 +223,9 @@ def predict(trainer: Union[EETrainer, Seq2SeqTrainer],
         raise NotImplementedError
 
 
-def get_sub_files(input_test_file: str,
-                  input_test_pred_file: str = None,
+def get_sub_files(input_test_file: str, 
+                  test_dir: str,
+                  input_test_pred_file: str = None, 
                   sub_size: int = 5000,
                   ) -> Union[List[str], Tuple[List[str], List[str]]]:
     """Split a large data file into several small data files for evaluation.
@@ -250,7 +251,7 @@ def get_sub_files(input_test_file: str,
                 The list of paths to the split files.
     """
     test_data = list(jsonlines.open(input_test_file))
-    sub_data_folder = '/'.join(input_test_file.split('/')[:-1]) + '/test_cache/'
+    sub_data_folder = test_dir + '/test_cache/'
 
     # clear the cache dir before split evaluate
     if os.path.isdir(sub_data_folder):
@@ -292,7 +293,6 @@ def get_sub_files(input_test_file: str,
 
     if input_test_pred_file:
         return output_test_files, output_pred_files
-
     return output_test_files
 
 
@@ -373,7 +373,8 @@ def predict_sub_ed(trainer: Union[EETrainer, Seq2SeqTrainer],
             An instance of the testing dataset.
     """
     data_file_full = data_file
-    data_file_list = get_sub_files(input_test_file=data_file_full,
+    data_file_list = get_sub_files(input_test_file=data_file_full, 
+                                   test_dir=data_args.test_dir,
                                    sub_size=data_args.split_infer_size)
 
     logits_list, labels_list = [], []
@@ -390,6 +391,16 @@ def predict_sub_ed(trainer: Union[EETrainer, Seq2SeqTrainer],
                                       **{"tokenizer": tokenizer, "training_args": trainer.args})
 
     dataset = data_class(data_args, tokenizer, data_file_full)
+
+    # Remove test cache folder after finishing prediction
+    # if len(data_file_list) > 0:
+    #     file_path = Path(data_file_list[0])
+    #     dir_name = file_path.parent.name
+    #     if dir_name == 'test_cache':
+    #         full_path = os.path.join(os.getcwd(), os.path.dirname(file_path))
+    #         shutil.rmtree(full_path)
+    #         logger.info(f"Test Dir {full_path} has been deleted.")
+
     return logits, labels, metrics, dataset
 
 
@@ -469,7 +480,8 @@ def predict_sub_eae(trainer: Union[EETrainer, Seq2SeqTrainer],
             An instance of the testing dataset.
     """
     test_file_full, test_pred_file_full = data_args.test_file, data_args.test_pred_file
-    test_file_list, test_pred_file_list = get_sub_files(input_test_file=test_file_full,
+    test_file_list, test_pred_file_list = get_sub_files(input_test_file=test_file_full, 
+                                                        test_dir=data_args.test_dir,
                                                         input_test_pred_file=test_pred_file_full,
                                                         sub_size=data_args.split_infer_size)
 

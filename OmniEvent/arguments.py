@@ -150,6 +150,12 @@ class DataArguments:
             "help": "Whether type specific marker"
         }
     )
+    test_dir: str = field(
+        default=None,
+        metadata={
+            "help": "Directory to split test file"
+        }
+    )
 
     def to_dict(self):
         """
