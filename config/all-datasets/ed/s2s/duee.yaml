@@ -52,12 +52,13 @@ optim: adamw_torch
 logging_strategy: steps
 logging_steps: 100
 
-evaluation_strategy: epoch      # Evaluate at the end of each epoch
-save_strategy: epoch            # Save checkpoint at the end of each epoch
+evaluation_strategy: steps      # Evaluate at the end of each epoch
+save_strategy: steps            # Save checkpoint at the end of each epoch
 save_total_limit: 1             # Only keep the best and the last checkpoint
 load_best_model_at_end: True    # Load the best model at the end of training   
 metric_for_best_model: micro_f1 # Metric for choosing the best model
 greater_is_better: True         # Higher accuracy is better
+save_best_checkpoint: True
 
 # split inference #
 split_infer: True
