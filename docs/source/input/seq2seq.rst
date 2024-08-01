@@ -314,7 +314,7 @@ the rest of the attributes and functions are multiplexed from the ``EAEDataProce
         def convert_examples_to_features(self) -> None:
             """Converts the `EAEInputExample`s into `EAEInputFeatures`s."""
             self.input_features = []
-            whitespace = True if self.config.language == "English" else False
+            whitespace = False if self.config.language == "Chinese" else True
             for example in tqdm(self.examples, desc="Processing features for Seq2Seq"):
                 # context
                 words = self.insert_marker(example.text,

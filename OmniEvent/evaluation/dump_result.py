@@ -311,6 +311,8 @@ def get_duee_submission_sl(preds: Union[np.array, List[str]],
                             assert len(preds[example_idx]) == len(item["text"].split())
                         elif config.language == "Chinese":
                             assert len(preds[example_idx]) == len("".join(item["text"].split()))  # remove space token
+                        elif config.language == "Vietnamese":
+                            assert len(preds[example_idx]) == len(item["text"].split())
                         else:
                             raise NotImplementedError
 
@@ -326,6 +328,9 @@ def get_duee_submission_sl(preds: Union[np.array, List[str]],
                         elif config.language == "Chinese":
                             word_pos_start = len([w for w in item["text"][:char_pos[0]] if w.strip('\n\xa0� ')])
                             word_pos_end = len([w for w in item["text"][:char_pos[1]] if w.strip('\n\xa0� ')])
+                        elif config.language == "Vietnamese":
+                            word_pos_start = len(item["text"][:char_pos[0]].split())
+                            word_pos_end = word_pos_start + len(item["text"][char_pos[0]:char_pos[1]].split())
                         else:
                             raise NotImplementedError
                         # get predictions

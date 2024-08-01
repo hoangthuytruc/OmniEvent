@@ -12,6 +12,8 @@ def get_words(text, language):
         words = text.split()
     elif language == "Chinese":
         words = list(text)
+    elif language == "Vietnamese":
+        words = text.split()
     else:
         raise NotImplementedError
     return words
@@ -80,7 +82,7 @@ class EAEProcessor():
             language = "Chinese"
         else:
             language = "English"
-        whitespace = True if language == "English" else False
+        whitespace = False if language == "Chinese" else True
         text = self.insert_marker(text, trigger["offset"], whitespace)
         words = get_words(text, language)
         input_context = self.tokenizer(words,

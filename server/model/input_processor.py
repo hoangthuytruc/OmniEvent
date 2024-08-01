@@ -12,6 +12,8 @@ def get_words(text: str,
         words = text.split()
     elif language == "Chinese":
         words = list(text)
+    elif language == "Vietnamese":
+        words = text.split()
     else:
         raise NotImplementedError
     return words

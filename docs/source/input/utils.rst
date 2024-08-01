@@ -191,6 +191,8 @@ obtained through splitting white spaces in English, while each Chinese character
             words = text.split()
         elif language == "Chinese":
             words = list(text)
+        elif language == "Vietnamese":
+            words = text.split()
         else:
             raise NotImplementedError
         return words
@@ -241,6 +243,9 @@ while for Chinese, each character is regarded as a word.
         elif language == "Chinese":
             left_pos = trigger["position"][0] if keep_space else len("".join(text[:trigger["position"][0]].split()))
             right_pos = trigger["position"][1] if keep_space else len("".join(text[:trigger["position"][1]].split()))
+        elif language == "Vietnamese":
+            left_pos = len(text[:trigger["position"][0]].split())
+            right_pos = len(text[:trigger["position"][1]].split())
         else:
             raise NotImplementedError
         return left_pos, right_pos
@@ -342,6 +347,10 @@ cause the output length differs from the input length.
 
         elif language == "Chinese":
             if len(pred) != len("".join(item["text"].split())):  # remove space token
+                logger.warning("There might be special tokens in the input text: {}".format(item["text"]))
+        
+        elif language == "Vietnamese":
+            if len(pred) != len(item["text"].split()):
                 logger.warning("There might be special tokens in the input text: {}".format(item["text"]))
         else:
             raise NotImplementedError

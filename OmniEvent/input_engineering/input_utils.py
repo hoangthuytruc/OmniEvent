@@ -122,6 +122,8 @@ def get_words(text: str,
         words = text.split()
     elif language == "Chinese":
         words = list(text)
+    elif language == "Vietnamese":
+        words = text.split()
     else:
         raise NotImplementedError
     return words
@@ -159,6 +161,9 @@ def get_left_and_right_pos(text: str,
     elif language == "Chinese":
         left_pos = trigger["position"][0] if keep_space else len("".join(text[:trigger["position"][0]].split()))
         right_pos = trigger["position"][1] if keep_space else len("".join(text[:trigger["position"][1]].split()))
+    elif language == "Vietnamese":
+        left_pos = len(text[:trigger["position"][0]].split())
+        right_pos = len(text[:trigger["position"][1]].split())
     else:
         raise NotImplementedError
     return left_pos, right_pos
@@ -174,6 +179,9 @@ def char_pos_to_word_pos(text: str,
     elif language == "Chinese":
         left_pos = char_pos[0] if keep_space else len("".join(text[:char_pos[0]].split()))
         right_pos = char_pos[1] if keep_space else len("".join(text[:char_pos[1]].split()))
+    elif language == "Vietnamese":
+        left_pos = len(text[:char_pos[0]].split())
+        right_pos = len(text[:char_pos[1]].split())
     else:
         raise NotImplementedError
     return left_pos, right_pos
