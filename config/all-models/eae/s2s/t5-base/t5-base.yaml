@@ -5,23 +5,23 @@ do_predict: True
 # top-level config #
 paradigm: seq2seq
 task_name: EAE
-dataset_name: ACE2005-dygie
-language: English
+dataset_name: VHE
+language: Vietnamese
 test_exists_labels: True
 
 # file path #
-output_dir: /kaggle/tmp/OmniEvent/output/DuEE1.0
-type2id_path: /kaggle/input/chinese-duee/label2id.json
-role2id_path: /kaggle/input/chinese-duee/role2id.json
-train_file: /kaggle/input/chinese-duee/train.unified.jsonl
-validation_file: /kaggle/input/chinese-duee/valid.unified.jsonl
-test_file: /kaggle/input/chinese-duee/test.unified.jsonl
+output_dir: /kaggle/tmp/OmniEvent/output/VHE
+type2id_path: /kaggle/input/vihistevent/label2id.json
+role2id_path: /kaggle/input/vihistevent/role2id.json
+train_file: /kaggle/input/vihistevent/train.unified.jsonl
+validation_file: /kaggle/input/vihistevent/valid.unified.jsonl
+test_file: /kaggle/input/vihistevent/test.unified.jsonl
 
 # event detection predictions
 golden_trigger: True
-train_pred_file: /kaggle/tmp/OmniEvent/output/DuEE1.0/ED/token_classification/bert-base-uncased-marker/train_preds.json
-validation_pred_file: /kaggle/tmp/OmniEvent/output/DuEE1.0/ED/token_classification/bert-base-uncased-marker/valid_preds.json
-test_pred_file: /kaggle/tmp/OmniEvent/output/DuEE1.0/ED/token_classification/bert-base-uncased-marker/test_preds.json
+train_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-uncased-marker/train_preds.json
+validation_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-uncased-marker/valid_preds.json
+test_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-uncased-marker/test_preds.json
 
 # config for data processor # 
 truncate_in_batch: True 
@@ -36,7 +36,7 @@ hidden_size: 768
 aggregation: none
 
 # training config #
-num_train_epochs: 1
+num_train_epochs: 2
 max_seq_length: 160
 max_out_length: 128
 dataloader_num_workers: 2

@@ -6,16 +6,16 @@ do_ED_infer: True
 # top-level config #
 paradigm: seq2seq
 task_name: ED
-dataset_name: DuEE1.0
-language: Chinese
+dataset_name: VHE
+language: Vietnamese
 test_exists_labels: False
 
 # file path # 
-output_dir: /kaggle/tmp/OmniEvent/output/DuEE1.0
-type2id_path: /kaggle/input/chinese-duee/label2id.json
-train_file: /kaggle/input/chinese-duee/train.unified.jsonl
-validation_file: /kaggle/input/chinese-duee/valid.unified.jsonl
-test_file: /kaggle/input/chinese-duee/test.unified.jsonl
+output_dir: /kaggle/tmp/OmniEvent/output/VHE
+type2id_path: /kaggle/input/vihistevent/label2id.json
+train_file: /kaggle/input/vihistevent/train.unified.jsonl
+validation_file: /kaggle/input/vihistevent/valid.unified.jsonl
+test_file: /kaggle/input/vihistevent/test.unified.jsonl
 
 # config for data processor #
 truncate_in_batch: True 
