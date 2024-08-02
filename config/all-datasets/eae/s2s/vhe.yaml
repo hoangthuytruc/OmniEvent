@@ -18,10 +18,10 @@ validation_file: /kaggle/input/vihistevent/valid.unified.jsonl
 test_file: /kaggle/input/vihistevent/test.unified.jsonl
 
 # event detection predictions
-golden_trigger: True 
-train_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-chinese-marker/train_preds.json
-validation_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-chinese-marker/valid_preds.json
-test_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-chinese-marker/test_preds.json
+golden_trigger: False 
+train_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-uncased-marker/train_preds.json
+validation_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-uncased-marker/valid_preds.json
+test_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-uncased-marker/test_preds.json
 
 # config for data processor # 
 truncate_in_batch: True 
