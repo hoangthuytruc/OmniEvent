@@ -1,0 +1,70 @@
+seed: 42
+do_train: True 
+do_predict: True
+
+# top-level config #
+paradigm: sequence_labeling
+task_name: EAE
+dataset_name: VHE
+language: Vietnamese
+test_exists_labels: False
+
+# file path #
+output_dir: /kaggle/tmp/OmniEvent/output/VHE
+type2id_path: /kaggle/input/vihistevent/label2id.json
+role2id_path: /kaggle/input/vihistevent/role2id.json
+train_file: /kaggle/input/vihistevent/train.unified.jsonl
+validation_file: /kaggle/input/vihistevent/valid.unified.jsonl
+test_file: /kaggle/input/vihistevent/test.unified.jsonl
+
+# event detection predictions
+golden_trigger: False 
+train_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-uncased-marker/train_preds.json
+validation_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-uncased-marker/valid_preds.json
+test_pred_file: /kaggle/tmp/OmniEvent/output/VHE/ED/token_classification/bert-base-uncased-marker/test_preds.json
+
+# config for data processor # 
+truncate_in_batch: True 
+return_token_type_ids: False 
+
+# model config #
+model_type: bert
+model_name_or_path: bert-base-uncased
+backbone_checkpoint_path: bert-base-uncased
+hidden_size: 768
+aggregation: none
+
+# training config #
+num_train_epochs: 2
+max_seq_length: 160
+max_out_length: 160
+dataloader_num_workers: 2
+# early_stopping_patience: 100
+
+per_device_train_batch_size: 4
+per_device_eval_batch_size: 8
+gradient_accumulation_steps: 1
+# eval_accumulation_steps: 4
+learning_rate: 7.0e-5
+weight_decay: 1.0e-5
+warmup_ratio: 0.1 
+max_grad_norm: 1.0
+optim: adamw_torch
+# lr_scheduler_type: constant
+
+logging_strategy: steps
+logging_steps: 100
+
+evaluation_strategy: epoch      # Evaluate at the end of each epoch
+save_strategy: epoch            # Save checkpoint at the end of each epoch
+save_total_limit: 2             # Only keep the best and the last checkpoint
+load_best_model_at_end: True    # Load the best model at the end of training   
+metric_for_best_model: micro_f1 # Metric for choosing the best model
+greater_is_better: True         # Higher accuracy is better
+
+# evaluate/test config #
+eae_eval_mode: loose
+
+split_infer: False
+split_infer_size: 5000
+

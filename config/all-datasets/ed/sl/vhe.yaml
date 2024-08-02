@@ -1,0 +1,58 @@
+seed: 42
+do_train: True
+do_predict: True 
+do_ED_infer: True 
+
+# top-level config #
+paradigm: sequence_labeling
+task_name: ED
+dataset_name: VHE
+language: Vietnamese
+test_exists_labels: False
+
+# file path # 
+output_dir: /kaggle/tmp/OmniEvent/output/VHE
+type2id_path: /kaggle/input/vihistevent/label2id.json
+train_file: /kaggle/input/vihistevent/train.unified.jsonl
+validation_file: /kaggle/input/vihistevent/valid.unified.jsonl
+test_file: /kaggle/input/vihistevent/test.unified.jsonl
+
+# config for data processor #
+return_token_type_ids: True 
+truncate_seq2seq_output: False 
+
+# model config #
+model_type: bert
+model_name_or_path: bert-base-uncased
+hidden_size: 768
+aggregation: none
+
+# training config #
+num_train_epochs: 2
+max_seq_length: 160
+max_out_length: 160
+dataloader_num_workers: 2
+
+per_device_train_batch_size: 32
+per_device_eval_batch_size: 32
+gradient_accumulation_steps: 1
+# eval_accumulation_steps: 4
+learning_rate: 12.0e-5
+weight_decay: 1.0e-5
+warmup_ratio: 0.1 
+max_grad_norm: 1
+optim: adamw_torch
+
+logging_strategy: steps
+logging_steps: 100
+
+evaluation_strategy: epoch      # Evaluate at the end of each epoch
+save_strategy: epoch            # Save checkpoint at the end of each epoch
+save_total_limit: 2             # Only keep the best and the last checkpoint
+load_best_model_at_end: True    # Load the best model at the end of training   
+metric_for_best_model: micro_f1 # Metric for choosing the best model
+greater_is_better: True 
+
+# split inference #
+split_infer: True
+split_infer_size: 500
