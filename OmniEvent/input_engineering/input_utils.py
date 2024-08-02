@@ -255,6 +255,9 @@ def check_pred_len(pred: List[str],
     elif language == "Chinese":
         if len(pred) != len("".join(item["text"].split())):  # remove space token
             logger.warning("There might be special tokens in the input text: {}".format(item["text"]))
+    elif language == "Vietnamese":
+        if len(pred) != len(item["text"].split()):
+            logger.warning("There might be special tokens in the input text: {}".format(item["text"]))
     else:
         raise NotImplementedError
 
