@@ -3,6 +3,7 @@ import unittest
 import sys 
 sys.path.append("..")
 from OmniEvent.infer import infer
+from tqdm import tqdm
 
 class TestInfer(unittest.TestCase):
 
@@ -16,8 +17,31 @@ class TestInfer(unittest.TestCase):
         self.assertEqual(result[1]["trigger"], "pounded")
         self.assertEqual(result[1]["type"], "injure")
 
+def write_results(data: list, io_path: str):
+    with open(io_path, 'w', encoding='utf-8') as f:
+        f.write(json.dumps(data, ensure_ascii=False, indent=4))
 
 if __name__ == "__main__":
-    unittest.main()
+    eval_path = 'path/to/file/eval.json'
+    output_path = './tests/eval-output.json'
 
-
+    eval_data = []
+    with open(eval_path) as f:
+        eval_data = json.load(f)
+    
+    ans = []
+    try:
+        for instance in tqdm(eval_data):
+            id = instance["id"]
+            text = instance["text"]
+            result = infer(task="EE", text=text)
+            events = result[0]["events"]
+            ans.append({
+                "id": id,
+                "text": text,
+                "events": events
+            })
+    except:
+        write_results(ans, output_path)
+    
+    write_results(ans, output_path)
