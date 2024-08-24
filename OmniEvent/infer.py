@@ -61,8 +61,8 @@ def get_model(model_args, model_name_or_path):
 def get_pretrained(model_name_or_path, device):
     # model
     model_args = AttrDict({
-        "paradigm": "seq2seq",
-        "model_type": "mt5"
+        "paradigm": "seq2seq", # sequence_labeling (BERT), seq2seq (t5, mt5, bart)
+        "model_type": "mt5" 
     })
     model = get_model(model_args, model_name_or_path)
     model = model.to(device)
