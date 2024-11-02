@@ -183,7 +183,7 @@ def get_trigger_detection_sl(preds: np.array,
 
     if "events" in item:
         metric_results = compute_unified_micro_f1(label_names=label_names, results=results)
-        logger.info("{} test performance after converting: {}".format(data_args.dataset_name, metric_results))
+        print("{} test performance after converting: {}".format(data_args.dataset_name, metric_results))
 
     return results
 
@@ -299,8 +299,8 @@ def get_argument_extraction_sl(preds: np.array,
         "recall": R * 100,
         "micro_f1": F1 * 100
     }
-    logger.info('Number of Instances: {}'.format(eae_instance_idx))
-    logger.info("{} test performance after converting: {}".format(data_args.dataset_name, metric_results))
+    print('Number of Instances: {}'.format(eae_instance_idx))
+    print("{} test performance after converting: {}".format(data_args.dataset_name, metric_results))
     return results
 
 
@@ -531,7 +531,7 @@ def get_trigger_detection_s2s(preds, labels, data_file, data_args, is_overflow):
 
     if "events" in item:
         micro_f1 = compute_unified_micro_f1(label_names=label_names, results=results)
-        logger.info("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
+        print("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
 
     return results
 
@@ -648,6 +648,6 @@ def get_argument_extraction_s2s(preds, labels, data_file, data_args, is_overflow
     pos_labels.remove("NA")
     micro_f1 = f1_score(all_labels, results, labels=pos_labels, average="micro") * 100.0
 
-    logger.info("Number of Instances: {}".format(eae_instance_idx))
-    logger.info("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
+    print("Number of Instances: {}".format(eae_instance_idx))
+    print("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
     return results
