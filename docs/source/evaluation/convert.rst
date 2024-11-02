@@ -196,7 +196,7 @@ predicting the labels and calculating the micro F1 score based on the prediction
 
         if "events" in item:
             micro_f1 = compute_unified_micro_f1(label_names=label_names, results=results)
-            print("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
+            logger.info("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
 
         return results
 
@@ -322,8 +322,8 @@ predictions and labels.
         pos_labels.remove("NA")
         micro_f1 = f1_score(label_names, results, labels=pos_labels, average="micro") * 100.0
 
-        print('Number of Instances: {}'.format(eae_instance_idx))
-        print("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
+        logger.info('Number of Instances: {}'.format(eae_instance_idx))
+        logger.info("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
         return results
 
 ``get_argument_extraction_mrc``
@@ -518,7 +518,7 @@ predicting the labels and calculating the micro F1 score based on the prediction
 
         if "events" in item:
             micro_f1 = compute_unified_micro_f1(label_names=label_names, results=results)
-            print("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
+            logger.info("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
 
         return results
 
@@ -651,6 +651,6 @@ predictions and labels.
         pos_labels.remove("NA")
         micro_f1 = f1_score(all_labels, results, labels=pos_labels, average="micro") * 100.0
 
-        print("Number of Instances: {}".format(eae_instance_idx))
-        print("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
+        logger.info("Number of Instances: {}".format(eae_instance_idx))
+        logger.info("{} test performance after converting: {}".format(data_args.dataset_name, micro_f1))
         return results

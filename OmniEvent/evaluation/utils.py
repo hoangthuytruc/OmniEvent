@@ -72,9 +72,9 @@ def dump_preds(trainer: Union[EETrainer, Seq2SeqTrainer],
     logits, labels, metrics, dataset = predict(trainer=trainer, tokenizer=tokenizer, data_class=data_class,
                                                data_args=data_args, data_file=data_file,
                                                training_args=training_args)
-    print("\n")
-    print("{}-Dump Preds-{}{}".format("-" * 25, mode, "-" * 25))
-    print("Test file: {}, Metrics: {}, Split_Infer: {}".format(data_file, metrics, data_args.split_infer))
+    logger.info("\n")
+    logger.info("{}-Dump Preds-{}{}".format("-" * 25, mode, "-" * 25))
+    logger.info("Test file: {}, Metrics: {}, Split_Infer: {}".format(data_file, metrics, data_args.split_infer))
 
     preds = get_pred_s2s(logits, tokenizer) if model_args.paradigm == "seq2seq" else np.argmax(logits, axis=-1)
 
@@ -92,7 +92,7 @@ def dump_preds(trainer: Union[EETrainer, Seq2SeqTrainer],
     save_path = os.path.join(output_dir, "{}_preds.json".format(mode))
 
     json.dump(pred_labels, open(save_path, "w", encoding='utf-8'), ensure_ascii=False)
-    print("ED {} preds dumped to {}\n ED finished!".format(mode, save_path))
+    logger.info("ED {} preds dumped to {}\n ED finished!".format(mode, save_path))
 
 
 def get_pred_s2s(logits: np.array,
