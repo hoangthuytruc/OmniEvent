@@ -28,7 +28,7 @@ class EDProcessor():
         if schema in ["<duee>", "<fewfc>", "<leven>"]:
             language = "Chinese"
         elif schema in ["<vhe>"]:
-            language == "Vietnamese"
+            language = "Vietnamese"
         else:
             language = "English"
         words = get_words(schema+text, language)
