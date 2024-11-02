@@ -7,7 +7,7 @@ paradigm: seq2seq
 task_name: EAE
 dataset_name: VHE
 language: Vietnamese
-test_exists_labels: False
+test_exists_labels: True
 
 # file path #
 output_dir: /kaggle/tmp/OmniEvent/output/VHE

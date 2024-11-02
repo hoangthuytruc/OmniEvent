@@ -27,6 +27,8 @@ class EDProcessor():
     def tokenize_per_instance(self, text, schema):
         if schema in ["<duee>", "<fewfc>", "<leven>"]:
             words = get_words(schema+text, "Chinese")
+        elif schema in ["<vhe>"]:
+            words = get_words(schema+text, "Vietnamese")
         else:
             words = get_words(schema+text, "English")
         input_context = self.tokenizer(words,
@@ -80,6 +82,8 @@ class EAEProcessor():
     def tokenize_per_instance(self, text, trigger, schema):
         if schema in ["<duee>", "<fewfc>", "<leven>"]:
             language = "Chinese"
+        elif schema in ["<vhe>"]:
+            language = "Vietnamese"
         else:
             language = "English"
         whitespace = False if language == "Chinese" else True

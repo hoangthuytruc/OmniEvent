@@ -72,7 +72,7 @@ def get_pretrained(model_name_or_path, device):
     return model, tokenizer
 
 
-def infer(text, model=None, tokenizer=None, triggers=None, schema="ace", task="ED", device='auto'):
+def infer(text, model=None, tokenizer=None, triggers=None, schema="vhe", task="ED", device='auto'):
     """Infer method.
 
     Args:
@@ -103,7 +103,7 @@ def infer(text, model=None, tokenizer=None, triggers=None, schema="ace", task="E
             } 
         ]
     """
-    assert schema in ['ace', 'kbp', 'ere', 'maven', 'leven', 'duee', 'fewfc']
+    assert schema in ['ace', 'kbp', 'ere', 'maven', 'leven', 'duee', 'fewfc', 'vhe']
     assert task in ['ED', 'EAE', 'EE']
     schema = f"<{schema}>"
     # get device.

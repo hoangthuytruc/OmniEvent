@@ -27,6 +27,8 @@ class EDProcessor():
     def tokenize_per_instance(self, text, schema):
         if schema in ["<duee>", "<fewfc>", "<leven>"]:
             language = "Chinese"
+        elif schema in ["<vhe>"]:
+            language == "Vietnamese"
         else:
             language = "English"
         words = get_words(schema+text, language)
@@ -82,6 +84,8 @@ class EAEProcessor():
         text = self.insert_marker(text, trigger["offset"])
         if schema in ["<duee>", "<fewfc>", "<leven>"]:
             language = "Chinese"
+        elif schema in ["<vhe>"]:
+            language = "Vietnamese"
         else:
             language = "English"
         words = get_words(schema+text, language)
